@@ -5,6 +5,8 @@
 //  Created by MacbookPro on 2022/10/10.
 //
 
+
+//畫面用UIKit，聲音加入AVFoundation
 import UIKit
 import AVFoundation
 
@@ -16,11 +18,17 @@ class ViewController: UIViewController {
 
     }
 
+    //從Btn拉Action，按下時執行Function speak1，型別可為任何any
     @IBAction func speak1(_ sender: Any) {
+        //設常數為utterance(聲音)，並用型別AVSpeechUtterance生出內容及字串為“北海道”的聲音
       let utterance = AVSpeechUtterance(string: "北海道")
+        //語言設定。利用型別屬性生東⻄，生出日文AVSpeechSynthesisVoice(language: "jp-JP")
         utterance.voice = AVSpeechSynthesisVoice(language: "jp-JP")
+        //語速設定
         utterance.rate = 0.4
+        //設常數為synthesizer(合成器)，並用型別AVSpeechSynthesizer()生出講話功能
     let synthesizer = AVSpeechSynthesizer()
+        //呼叫，執行物件的方法:物件變數＋.＋finc+( 參數 )
         synthesizer.speak(utterance)
     }
     
